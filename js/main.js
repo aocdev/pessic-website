@@ -2,14 +2,17 @@
 
 /**
  * The installers. When a release is published, fill in each `href` (a relative path such as
- * "downloads/Pessic-0.1.0.msi" or a full URL). Empty links show "Aviat disponible".
+ * "downloads/Pessic-1.0.0.msi" or a full URL). Empty links show "Aviat disponible".
  * `label` is a key of i18n/<language>.json.
  */
 const RELEASE = {
-  version: "0.1.0",
+  version: "1.0.0",
   downloads: {
     windows: [{ label: "js.msi", href: "" }],
-    mac: [{ label: "js.dmg", href: "" }],
+    mac: [
+      { label: "js.dmgArm", href: "" },
+      { label: "js.dmgIntel", href: "" },
+    ],
     linux: [
       { label: "js.deb", href: "" },
       { label: "js.rpm", href: "" },

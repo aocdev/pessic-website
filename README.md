@@ -32,17 +32,27 @@ strings file):
 
 ```js
 const RELEASE = {
-  version: "0.1.0",
+  version: "1.0.0",
   downloads: {
     windows: [{ label: "js.msi", href: "" }],
-    mac:     [{ label: "js.dmg", href: "" }],
+    mac:     [{ label: "js.dmgArm", href: "" }, { label: "js.dmgIntel", href: "" }],
     linux:   [{ label: "js.deb", href: "" }, { label: "js.rpm", href: "" }],
   },
 };
 ```
 
-Put each installer's address in `href`: a path inside the site (`downloads/Pessic-0.1.0.msi`) or a
-full URL. While a link is empty its button says "Aviat disponible", and the section explains that the
+Put each installer's address in `href`: a path inside the site (`downloads/Pessic-1.0.0.msi`) or a
+full URL. The app's GitHub workflow attaches them to each release as:
+
+| Button | File | Release URL |
+|---|---|---|
+| Windows | `Pessic-1.0.0.msi` | `https://github.com/<user>/<repo>/releases/download/v1.0.0/Pessic-1.0.0.msi` |
+| macOS, Apple Silicon | `Pessic-1.0.0-arm64.dmg` | same pattern |
+| macOS, Intel | `Pessic-1.0.0-x64.dmg` | same pattern |
+| Linux .deb | `pessic_1.0.0_amd64.deb` | same pattern |
+| Linux .rpm | `pessic-1.0.0-1.x86_64.rpm` | same pattern |
+
+While a link is empty its button says "Aviat disponible", and the section explains that the
 installers are not published yet. Once the visitor's system has an installer, the main button at the
 top downloads it directly and the card for that system is highlighted.
 
