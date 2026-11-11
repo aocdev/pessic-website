@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="{{=lang}}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{meta.title}}</title>
+  <meta name="description" content="{{@meta.description}}">
+  <meta name="theme-color" content="#1f5f55">
+  <meta property="og:title" content="{{@meta.title}}">
+  <meta property="og:description" content="{{@meta.ogDescription}}">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="{{=root}}assets/screens/resum.webp">
+{{=alternates}}
+  <link rel="icon" type="image/png" href="{{=root}}assets/favicon.png">
+  <link rel="apple-touch-icon" href="{{=root}}assets/apple-touch-icon.png">
+  <link rel="stylesheet" href="{{=root}}css/styles.css">
+  <script src="{{=root}}js/main.js" defer></script>
+</head>
+<body>
+  <!-- {{=generated}} -->
+  <a class="skip-link" href="#contingut">{{a11y.skip}}</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#inici" aria-label="{{@a11y.home}}">
+        <img src="{{=root}}assets/favicon.png" alt="" width="32" height="32">
+        <span>Pessic</span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu">
+        <span class="sr-only">{{a11y.menu}}</span>
+        <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+      <nav id="menu" class="site-nav" aria-label="{{@a11y.mainNav}}">
+        <a href="#funcions">{{nav.features}}</a>
+        <a href="#com-comencar">{{nav.start}}</a>
+        <a href="#pantalles">{{nav.screens}}</a>
+        <a href="#preguntes">{{nav.faq}}</a>
+        <a href="manual.html">{{nav.manual}}</a>
+{{=languages}}
+        <a class="button button-small" href="#descarrega">{{nav.download}}</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contingut">
+    <!-- ============================================================ hero -->
+    <section id="inici" class="hero">
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <p class="eyebrow">{{hero.eyebrow}}</p>
+          <h1>{{hero.title}}</h1>
+          <p class="lead">{{hero.lead}}</p>
+          <div class="hero-actions">
+            <a class="button" href="#descarrega" data-download="primary">{{hero.download}}</a>
+            <a class="button button-ghost" href="#funcions">{{hero.more}}</a>
+          </div>
+          <p class="hero-note" data-download="note">{{hero.note}}</p>
+        </div>
+        <figure class="hero-shot window">
+          <div class="window-bar" aria-hidden="true"><i></i><i></i><i></i></div>
+          <img src="{{=root}}assets/screens/resum.webp" width="1280" height="823" alt="{{@hero.shotAlt}}">
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============================================================ facts -->
+    <section class="facts" aria-label="{{@a11y.facts}}">
+      <ul class="container facts-list">
+        <li>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 6v6c0 4.5 3.4 8.3 8 9 4.6-.7 8-4.5 8-9V6l-8-3Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="m9 12 2 2 4-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span><strong>{{facts.data.title}}</strong> {{facts.data.text}}</span>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9a15 15 0 0 1 20 0M5.5 12.5a10 10 0 0 1 13 0M9 16a5 5 0 0 1 6 0" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="m3 3 18 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <span><strong>{{facts.offline.title}}</strong> {{facts.offline.text}}</span>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M7 15v-3M12 15V9M17 15v-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <span><strong>{{facts.ine.title}}</strong> {{facts.ine.text}}</span>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.3-5.7M4 4v4h4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 8v4l3 2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <span><strong>{{facts.backups.title}}</strong> {{facts.backups.text}}</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ============================================================ basics -->
+    <section id="idees" class="section">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">{{basics.eyebrow}}</p>
+          <h2>{{basics.title}}</h2>
+        </header>
+        <div class="cards cards-3">
+          <article class="card">
+            <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3 10h18M8 3v4M16 3v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="8" cy="15" r="1.6" fill="currentColor"/></svg></div>
+            <h3>{{basics.payday.title}}</h3>
+            <p>{{basics.payday.text}}</p>
+          </article>
+          <article class="card">
+            <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m4 8 8 5 8-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <h3>{{basics.envelopes.title}}</h3>
+            <p>{{basics.envelopes.text}}</p>
+          </article>
+          <article class="card">
+            <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 17V8M10 17V4M16 17v-6M22 17v-3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M2 20h20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+            <h3>{{basics.savings.title}}</h3>
+            <p>{{basics.savings.text}}</p>
+          </article>
+        </div>
+
+        <div class="payment-types">
+          <h3>{{basics.typesTitle}}</h3>
+          <div class="cards cards-3">
+            <div class="type">
+              <span class="tag tag-fixed">{{basics.fixed.tag}}</span>
+              <p class="type-examples">{{basics.fixed.examples}}</p>
+              <p>{{basics.fixed.text}}</p>
+            </div>
+            <div class="type">
+              <span class="tag tag-annual">{{basics.annual.tag}}</span>
+              <p class="type-examples">{{basics.annual.examples}}</p>
+              <p>{{basics.annual.text}}</p>
+            </div>
+            <div class="type">
+              <span class="tag tag-variable">{{basics.variable.tag}}</span>
+              <p class="type-examples">{{basics.variable.examples}}</p>
+              <p>{{basics.variable.text}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ features -->
+    <section id="funcions" class="section section-alt">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">{{features.eyebrow}}</p>
+          <h2>{{features.title}}</h2>
+        </header>
+
+        <article class="feature">
+          <div class="feature-text">
+            <h3>{{features.record.title}}</h3>
+            <p>{{features.record.intro}}</p>
+            <ul class="checks">
+              <li>{{features.record.expenses}}</li>
+              <li>{{features.record.income}}</li>
+              <li>{{features.record.refunds}}</li>
+            </ul>
+            <p class="muted">{{features.record.salary}}</p>
+          </div>
+          <figure class="feature-shot window">
+            <img src="{{=root}}assets/screens/moviments.webp" width="1280" height="823" loading="lazy" alt="{{@features.record.alt}}">
+          </figure>
+        </article>
+
+        <article class="feature feature-reverse">
+          <div class="feature-text">
+            <h3>{{features.account.title}}</h3>
+            <p>{{features.account.intro}}</p>
+            <ul class="checks">
+              <li>{{features.account.today}}</li>
+              <li>{{features.account.forecast}}</li>
+              <li>{{features.account.adjust}}</li>
+            </ul>
+          </div>
+          <figure class="feature-shot window">
+            <img src="{{=root}}assets/screens/pagaments.webp" width="1280" height="823" loading="lazy" alt="{{@features.account.alt}}">
+          </figure>
+        </article>
+
+        <article class="feature">
+          <div class="feature-text">
+            <h3>{{features.annuals.title}}</h3>
+            <p>{{features.annuals.intro}}</p>
+            <ul class="checks">
+              <li>{{features.annuals.reserve}}</li>
+              <li>{{features.annuals.warning}}</li>
+              <li>{{features.annuals.goals}}</li>
+            </ul>
+          </div>
+          <figure class="feature-shot window">
+            <img src="{{=root}}assets/screens/guardioles.webp" width="1280" height="823" loading="lazy" alt="{{@features.annuals.alt}}">
+          </figure>
+        </article>
+
+        <article class="feature feature-reverse">
+          <div class="feature-text">
+            <h3>{{features.compare.title}}</h3>
+            <p>{{features.compare.intro}}</p>
+            <ul class="checks">
+              <li>{{features.compare.propose}}</li>
+              <li>{{features.compare.weekly}}</li>
+              <li>{{features.compare.red}}</li>
+            </ul>
+          </div>
+          <figure class="feature-shot window">
+            <img src="{{=root}}assets/screens/sobres.webp" width="1280" height="823" loading="lazy" alt="{{@features.compare.alt}}">
+          </figure>
+        </article>
+
+        <article class="feature">
+          <div class="feature-text">
+            <h3>{{features.close.title}}</h3>
+            <p>{{features.close.intro}}</p>
+            <ul class="checks">
+              <li>{{features.close.contributions}}</li>
+              <li>{{features.close.leftover}}</li>
+              <li>{{features.close.bank}}</li>
+            </ul>
+            <p>{{features.close.history}}</p>
+          </div>
+          <figure class="feature-shot window feature-shot-tall">
+            <img src="{{=root}}assets/screens/close.webp" width="696" height="906" loading="lazy" alt="{{@features.close.alt}}">
+          </figure>
+        </article>
+
+        <ul class="extras">
+          <li><strong>{{features.extras.upcoming.title}}</strong> {{features.extras.upcoming.text}}</li>
+          <li><strong>{{features.extras.paychecks.title}}</strong> {{features.extras.paychecks.text}}</li>
+          <li><strong>{{features.extras.search.title}}</strong> {{features.extras.search.text}}</li>
+          <li><strong>{{features.extras.csv.title}}</strong> {{features.extras.csv.text}}</li>
+          <li><strong>{{features.extras.profiles.title}}</strong> {{features.extras.profiles.text}}</li>
+          <li><strong>{{features.extras.backups.title}}</strong> {{features.extras.backups.text}}</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============================================================ getting started -->
+    <section id="com-comencar" class="section">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">{{start.eyebrow}}</p>
+          <h2>{{start.title}}</h2>
+          <p class="section-lead">{{start.lead}}</p>
+        </header>
+        <ol class="steps">
+          <li>
+            <h3>{{start.profile.title}}</h3>
+            <p>{{start.profile.text}}</p>
+          </li>
+          <li>
+            <h3>{{start.payments.title}}</h3>
+            <p>{{start.payments.text}}</p>
+          </li>
+          <li>
+            <h3>{{start.limits.title}}</h3>
+            <p>{{start.limits.text}}</p>
+          </li>
+          <li>
+            <h3>{{start.balance.title}}</h3>
+            <p>{{start.balance.text}}</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============================================================ rules -->
+    <section class="section rules" aria-labelledby="regles-titol">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">{{rules.eyebrow}}</p>
+          <h2 id="regles-titol">{{rules.title}}</h2>
+        </header>
+        <ol class="rules-list">
+          <li><span>1</span>{{rules.weekly}}</li>
+          <li><span>2</span>{{rules.red}}</li>
+          <li><span>3</span>{{rules.annuals}}</li>
+          <li><span>4</span>{{rules.close}}</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============================================================ screens -->
+    <section id="pantalles" class="section section-alt">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">{{screens.eyebrow}}</p>
+          <h2>{{screens.title}}</h2>
+          <p class="section-lead">{{screens.lead}}</p>
+        </header>
+        <div class="tabs" data-tabs>
+          <div class="tab-list" role="tablist" aria-label="{{@a11y.screenTabs}}">
+            <button role="tab" id="tab-resum" aria-controls="panel-resum" aria-selected="true">{{screens.summary.tab}}</button>
+            <button role="tab" id="tab-moviments" aria-controls="panel-moviments" aria-selected="false" tabindex="-1">{{screens.movements.tab}}</button>
+            <button role="tab" id="tab-pagaments" aria-controls="panel-pagaments" aria-selected="false" tabindex="-1">{{screens.fixed.tab}}</button>
+            <button role="tab" id="tab-anuals" aria-controls="panel-anuals" aria-selected="false" tabindex="-1">{{screens.annuals.tab}}</button>
+            <button role="tab" id="tab-estalvi" aria-controls="panel-estalvi" aria-selected="false" tabindex="-1">{{screens.savings.tab}}</button>
+            <button role="tab" id="tab-limits" aria-controls="panel-limits" aria-selected="false" tabindex="-1">{{screens.limits.tab}}</button>
+            <button role="tab" id="tab-historic" aria-controls="panel-historic" aria-selected="false" tabindex="-1">{{screens.history.tab}}</button>
+          </div>
+          <div role="tabpanel" id="panel-resum" aria-labelledby="tab-resum" class="tab-panel">
+            <p>{{screens.summary.text}}</p>
+            <button class="shot-button window" type="button" data-zoom><img src="{{=root}}assets/screens/resum.webp" width="1280" height="823" loading="lazy" alt="{{@screens.summary.alt}}"></button>
+          </div>
+          <div role="tabpanel" id="panel-moviments" aria-labelledby="tab-moviments" class="tab-panel" hidden>
+            <p>{{screens.movements.text}}</p>
+            <button class="shot-button window" type="button" data-zoom><img src="{{=root}}assets/screens/moviments.webp" width="1280" height="823" loading="lazy" alt="{{@screens.movements.alt}}"></button>
+          </div>
+          <div role="tabpanel" id="panel-pagaments" aria-labelledby="tab-pagaments" class="tab-panel" hidden>
+            <p>{{screens.fixed.text}}</p>
+            <button class="shot-button window" type="button" data-zoom><img src="{{=root}}assets/screens/pagaments.webp" width="1280" height="823" loading="lazy" alt="{{@screens.fixed.alt}}"></button>
+          </div>
+          <div role="tabpanel" id="panel-anuals" aria-labelledby="tab-anuals" class="tab-panel" hidden>
+            <p>{{screens.annuals.text}}</p>
+            <button class="shot-button window" type="button" data-zoom><img src="{{=root}}assets/screens/anuals.webp" width="1280" height="823" loading="lazy" alt="{{@screens.annuals.alt}}"></button>
+          </div>
+          <div role="tabpanel" id="panel-estalvi" aria-labelledby="tab-estalvi" class="tab-panel" hidden>
+            <p>{{screens.savings.text}}</p>
+            <button class="shot-button window" type="button" data-zoom><img src="{{=root}}assets/screens/estalvi.webp" width="1280" height="823" loading="lazy" alt="{{@screens.savings.alt}}"></button>
+          </div>
+          <div role="tabpanel" id="panel-limits" aria-labelledby="tab-limits" class="tab-panel" hidden>
+            <p>{{screens.limits.text}}</p>
+            <button class="shot-button window" type="button" data-zoom><img src="{{=root}}assets/screens/limits.webp" width="1280" height="823" loading="lazy" alt="{{@screens.limits.alt}}"></button>
+          </div>
+          <div role="tabpanel" id="panel-historic" aria-labelledby="tab-historic" class="tab-panel" hidden>
+            <p>{{screens.history.text}}</p>
+            <button class="shot-button window" type="button" data-zoom><img src="{{=root}}assets/screens/historic.webp" width="1280" height="823" loading="lazy" alt="{{@screens.history.alt}}"></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ faq -->
+    <section id="preguntes" class="section">
+      <div class="container container-narrow">
+        <header class="section-head">
+          <p class="eyebrow">{{faq.eyebrow}}</p>
+          <h2>{{faq.title}}</h2>
+        </header>
+        <div class="faq">
+          <details><summary>{{faq.data.q}}</summary><p>{{faq.data.a}}</p></details>
+          <details><summary>{{faq.bank.q}}</summary><p>{{faq.bank.a}}</p></details>
+          <details><summary>{{faq.savingsAccount.q}}</summary><p>{{faq.savingsAccount.a}}</p></details>
+          <details><summary>{{faq.extraPay.q}}</summary><p>{{faq.extraPay.a}}</p></details>
+          <details><summary>{{faq.refund.q}}</summary><p>{{faq.refund.a}}</p></details>
+          <details><summary>{{faq.overspent.q}}</summary><p>{{faq.overspent.a}}</p></details>
+          <details><summary>{{faq.changes.q}}</summary><p>{{faq.changes.a}}</p></details>
+          <details><summary>{{faq.computers.q}}</summary><p>{{faq.computers.a}}</p></details>
+        </div>
+        <p class="faq-more">{{faq.more}}</p>
+      </div>
+    </section>
+
+    <!-- ============================================================ download -->
+    <section id="descarrega" class="section download">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">{{download.eyebrow}}</p>
+          <h2>{{download.title}}</h2>
+          <p class="section-lead" data-download="status">{{download.status}}</p>
+        </header>
+        <div class="cards cards-3 platforms">
+          <article class="platform" data-platform="windows">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5.5 10.5 4.4v7.1H3V5.5Zm8.5-1.2L21 3v8.5h-9.5V4.3ZM3 12.5h7.5v7.1L3 18.5v-6Zm8.5 0H21V21l-9.5-1.3v-7.2Z" fill="currentColor"/></svg>
+            <h3>Windows</h3>
+            <p class="platform-meta">{{download.windowsMeta}}</p>
+            <div class="platform-actions" data-links></div>
+          </article>
+          <article class="platform" data-platform="mac">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.4 12.6c0-2.4 2-3.6 2.1-3.7-1.1-1.7-2.9-1.9-3.5-1.9-1.5-.2-2.9.9-3.7.9-.8 0-1.9-.9-3.2-.8-1.6 0-3.1 1-4 2.4-1.7 3-.4 7.4 1.2 9.8.8 1.2 1.8 2.5 3 2.4 1.2 0 1.7-.8 3.2-.8s1.9.8 3.2.8c1.3 0 2.2-1.2 3-2.4.9-1.4 1.3-2.7 1.3-2.8-.1 0-2.6-1-2.6-3.9ZM14 5.4c.7-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.5-.6.7-1.2 1.8-1 2.9 1 .1 2.1-.6 2.8-1.4Z" fill="currentColor"/></svg>
+            <h3>macOS</h3>
+            <p class="platform-meta">{{download.macMeta}}</p>
+            <div class="platform-actions" data-links></div>
+          </article>
+          <article class="platform" data-platform="linux">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2c-2.2 0-3.6 1.9-3.6 4.6 0 1.4.3 2.3-.6 3.7C6.6 12 5 14.2 5 16.8c0 .6.1 1.2.3 1.7-.6.3-1.3.8-1.3 1.6 0 1.1 1.5 1.4 3 1.7 1.1.2 2 .6 2.8.6.8 0 1.4-.4 1.8-.8h.8c.4.4 1 .8 1.8.8.8 0 1.7-.4 2.8-.6 1.5-.3 3-.6 3-1.7 0-.8-.7-1.3-1.3-1.6.2-.5.3-1.1.3-1.7 0-2.6-1.6-4.8-2.8-6.5-.9-1.4-.6-2.3-.6-3.7C15.6 3.9 14.2 2 12 2Zm-1.4 4.1c.4 0 .7.5.7 1.1s-.3 1.1-.7 1.1-.7-.5-.7-1.1.3-1.1.7-1.1Zm2.8 0c.4 0 .7.5.7 1.1s-.3 1.1-.7 1.1-.7-.5-.7-1.1.3-1.1.7-1.1ZM12 9.2c.9 0 2 .5 2 .9 0 .3-1.1 1-2 1s-2-.7-2-1c0-.4 1.1-.9 2-.9Z" fill="currentColor"/></svg>
+            <h3>Linux</h3>
+            <p class="platform-meta">{{download.linuxMeta}}</p>
+            <div class="platform-actions" data-links></div>
+          </article>
+        </div>
+        <div class="download-notes">
+          <div>
+            <h3>{{download.dataTitle}}</h3>
+            <table>
+              <tbody>
+                <tr><th scope="row">Windows</th><td><code>%APPDATA%\Pessic\</code></td></tr>
+                <tr><th scope="row">macOS</th><td><code>~/Library/Application Support/Pessic/</code></td></tr>
+                <tr><th scope="row">Linux</th><td><code>~/.local/share/pessic/</code></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <h3>{{download.startTitle}}</h3>
+            <p>{{download.startText}}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <a class="brand" href="#inici">
+        <img src="{{=root}}assets/favicon.png" alt="" width="28" height="28">
+        <span>Pessic</span>
+      </a>
+      <p><em>{{footer.tagline}}</em></p>
+      <nav aria-label="{{@a11y.footerNav}}">
+        <a href="manual.html">{{nav.manualLong}}</a>
+        <a href="#preguntes">{{nav.faq}}</a>
+        <a href="#descarrega">{{nav.download}}</a>
+      </nav>
+      <p class="muted small">{{footer.copyright}}</p>
+    </div>
+  </footer>
+
+  <dialog class="lightbox" aria-label="{{@a11y.zoom}}">
+    <button class="lightbox-close" type="button" aria-label="{{@a11y.close}}">×</button>
+    <img alt="">
+  </dialog>
+{{=jsStrings}}
+</body>
+</html>

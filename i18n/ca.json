@@ -1,0 +1,275 @@
+{
+  "_language": {
+    "code": "ca",
+    "name": "Català",
+    "note": "Website texts. A translation is a copy of this file named <code>.json (for example es.json) with the same keys. Values may contain simple inline HTML (strong, em, a, span). Keys starting with _ are not texts."
+  },
+  "meta": {
+    "title": "Pessic · El teu pressupost mensual, pessic a pessic",
+    "description": "Pessic és una aplicació d'escriptori per fer un pressupost cada mes i complir-lo. Decideixes quant vols gastar en cada cosa, apuntes el que gastes i veus cada dia quant et queda. Les dades es queden al teu ordinador.",
+    "ogDescription": "Decideix quant vols gastar en cada cosa, apunta el que gastes i mira cada dia quant et queda. Sense registre i sense núvol."
+  },
+  "a11y": {
+    "skip": "Salta al contingut",
+    "home": "Pessic, inici",
+    "menu": "Menú",
+    "mainNav": "Principal",
+    "footerNav": "Peu de pàgina",
+    "language": "Idioma",
+    "facts": "En poques paraules",
+    "screenTabs": "Pantalles de Pessic",
+    "zoom": "Captura ampliada",
+    "close": "Tanca",
+    "manualToc": "Índex del manual"
+  },
+  "nav": {
+    "home": "Inici",
+    "features": "Què fa",
+    "start": "Com començar",
+    "screens": "Pantalles",
+    "faq": "Preguntes",
+    "manual": "Manual",
+    "manualLong": "Manual d'ús",
+    "download": "Descarrega"
+  },
+  "hero": {
+    "eyebrow": "Pressupost mensual per a l'ordinador",
+    "title": "Cada despesa, <span class=\"accent\">pessic a pessic</span>, al seu lloc.",
+    "lead": "Pessic t'ajuda a fer un pressupost cada mes i a complir-lo. Decideixes quant vols gastar en cada cosa, apuntes el que gastes i veus cada dia quant et queda.",
+    "download": "Descarrega Pessic",
+    "more": "Mira què fa",
+    "note": "Per a Windows, macOS i Linux · Sense registre · En català",
+    "shotAlt": "Pantalla Resum de Pessic: propers pagaments, saldo del compte, xifres del mes i el que queda per gastar"
+  },
+  "facts": {
+    "data": { "title": "Les dades són teves.", "text": "Es queden al teu ordinador: sense comptes ni núvol." },
+    "offline": { "title": "Funciona sense internet.", "text": "Obres l'aplicació i ja hi és tot." },
+    "ine": { "title": "Categories oficials de l'INE.", "text": "Compara't amb les llars com la teva." },
+    "backups": { "title": "Còpies cada dia.", "text": "Pessic en guarda les 10 últimes, sense que hi pensis." }
+  },
+  "basics": {
+    "eyebrow": "Les idees bàsiques",
+    "title": "Un pressupost que s'entén d'un cop d'ull",
+    "payday": {
+      "title": "El mes comença el dia que cobres",
+      "text": "Si cobres el 28, el teu mes va del 28 fins al 27 del mes següent. Així el pressupost segueix els teus diners de veritat, no el calendari."
+    },
+    "envelopes": {
+      "title": "Un sobre per a cada categoria",
+      "text": "Alimentació, transport, oci… Cada categoria té un límit. Quan apuntes una despesa, surt del seu sobre, i veus què et queda a cadascun."
+    },
+    "savings": {
+      "title": "El que sobra és el teu estalvi",
+      "text": "El que queda per sota dels ingressos, després de l'estalvi automàtic i del que apartes, és el teu estalvi previst. Pessic te'l mostra des del primer dia."
+    },
+    "typesTitle": "Tres tipus de pagaments, cadascun al seu lloc",
+    "fixed": {
+      "tag": "Fix",
+      "examples": "lloguer, llum, gimnàs, préstec",
+      "text": "Es repeteix cada mes. El marques com a <em>Pagat</em> quan surt del compte."
+    },
+    "annual": {
+      "tag": "Anual",
+      "examples": "assegurança, IBI, matrícula",
+      "text": "Un cop l'any. Pessic calcula quant has d'apartar cada mes a la <strong>reserva d'anuals</strong>, i el dia que toca el pagues amb la reserva, no amb els diners del mes."
+    },
+    "variable": {
+      "tag": "Variable",
+      "examples": "súper, benzina, cafè, sopars",
+      "text": "El que apuntes cada dia. És aquí on se'n van els diners sense adonar-te'n."
+    }
+  },
+  "features": {
+    "eyebrow": "Què fa Pessic",
+    "title": "Tot el que necessites per arribar a final de mes",
+    "record": {
+      "title": "Apunta en un moment",
+      "intro": "Data, concepte, categoria i import, i ja està. El mateix requadre serveix per a tres coses:",
+      "expenses": "<strong>Despeses</strong>, pagades amb els diners del mes, amb la reserva o amb una guardiola.",
+      "income": "<strong>Ingressos</strong> que entren a més del sou (una paga extra, un bonus, una venda), i tu tries on van: al pressupost del mes, a la reserva, a una guardiola o a l'estalvi.",
+      "refunds": "<strong>Devolucions</strong>: els diners tornen a la categoria on els havies gastat.",
+      "salary": "El sou no s'apunta: Pessic ja el compta el dia que cobres.",
+      "alt": "Pantalla Moviments: el formulari Apunta i la llista de moviments amb cerca i filtres"
+    },
+    "account": {
+      "title": "Saps quant tens al compte, cada dia",
+      "intro": "Digues una vegada quant tens al compte on cobres la nòmina i Pessic farà la resta: hi suma la nòmina i hi resta el que apuntes.",
+      "today": "<strong>Al compte avui</strong> i <strong>abans de tornar a cobrar</strong>, si pagues el que falta i gastes tot el pressupost.",
+      "forecast": "Al pla de pagaments, el <strong>saldo previst</strong> després de cada pagament. Si un no hi cap, surt marcat <em>sense saldo</em>.",
+      "adjust": "<strong>Ajusta amb el banc</strong> quan el banc diu una altra cosa: normalment és una despesa que no has apuntat.",
+      "alt": "Pantalla Pagaments fixos: pla de pagaments del mes amb el saldo previst després de cada pagament"
+    },
+    "annuals": {
+      "title": "Els anuals, sense sustos",
+      "intro": "L'assegurança, l'IBI o la matrícula ja no et trenquen el mes. Pessic reparteix cada pagament anual en dotze mesos i et diu quant has d'apartar.",
+      "reserve": "La <strong>reserva d'anuals</strong> té saldo real: el que hi poses i el que en surt.",
+      "warning": "T'avisa del <strong>primer mes que no n'hi hauria prou</strong>.",
+      "goals": "I les <strong>guardioles</strong>: un viatge, un cotxe, un fons d'emergència, amb objectiu, data i quant cal posar-hi cada mes per arribar-hi.",
+      "alt": "Pantalla Estalvi: moviments de la reserva d'anuals i guardioles amb el seu progrés"
+    },
+    "compare": {
+      "title": "Compara't amb les llars com la teva",
+      "intro": "Les 13 categories són les que fa servir l'INE (COICOP 2018). Al costat de cada sobre veus el que gasten de mitjana les llars semblants a la teva: mateix tipus de llar, membres i ingressos.",
+      "propose": "Pessic et pot <strong>proposar els límits</strong> a partir d'aquestes mitjanes.",
+      "weekly": "Cada setmana té el seu <strong>límit setmanal</strong>: el que no gastes passa a la següent.",
+      "red": "Un sobre en vermell vol dir prou fins al mes que ve.",
+      "alt": "Sobres per categoria: barres amb el que s'ha gastat de cada límit i la mitjana de l'INE"
+    },
+    "close": {
+      "title": "Tanca el mes i mira com has anat",
+      "intro": "Quan acaba el mes, Pessic t'ho recorda. En tancar-lo:",
+      "contributions": "Confirmes el que has passat a la <strong>reserva i a les guardioles</strong>.",
+      "leftover": "Decideixes <strong>on va el que ha sobrat</strong>: a l'estalvi, al mes següent, a la reserva o a una guardiola.",
+      "bank": "Si vols, <strong>comproves el saldo del banc</strong>. La diferència queda apuntada.",
+      "history": "A l'<strong>Històric</strong> veus els teus mesos en un gràfic: ingressos, gastat, apartat i estalvi, i cada categoria comparada amb el seu límit.",
+      "alt": "Diàleg Tanca el mes: resum del mes, aportacions a la reserva i a les guardioles, i què fer amb el que ha sobrat"
+    },
+    "extras": {
+      "upcoming": { "title": "Propers pagaments.", "text": "Els fixos que vencen en 3 dies o ja han vençut, i els anuals del mes." },
+      "paychecks": { "title": "12 o 14 pagues.", "text": "Pessic t'avisa el mes que toca cobrar la paga extra." },
+      "search": { "title": "Cerca sense accents.", "text": "«cafe» troba «Cafè». Per categoria, tipus i període." },
+      "csv": { "title": "Exporta a CSV.", "text": "Moviments, sobres i històric, a punt per a Excel o LibreOffice." },
+      "profiles": { "title": "Diversos perfils.", "text": "El teu, el de la llar, el de qui vulguis." },
+      "backups": { "title": "Còpies per guardar fora.", "text": "Exporta-ho tot en un fitxer i recupera-ho en un altre ordinador." }
+    }
+  },
+  "start": {
+    "eyebrow": "Com començar",
+    "title": "Quinze minuts, una vegada",
+    "lead": "Agafa els rebuts del banc i deixa-ho a punt. Després, només cal apuntar.",
+    "profile": {
+      "title": "Crea el perfil",
+      "text": "Nom, ingressos nets, el dia que cobres, el tipus de llar i si cobres 12 o 14 pagues. Si vols, Pessic et proposa els límits segons el que gasten les llars com la teva."
+    },
+    "payments": {
+      "title": "Afegeix els pagaments fixos i els anuals",
+      "text": "Lloguer, llum, mòbil, gimnàs, préstecs… i, a part, els d'un cop l'any. Pessic calcula quant cal apartar cada mes."
+    },
+    "limits": {
+      "title": "Revisa els límits",
+      "text": "Quant vols gastar en cada categoria, amb els fixos inclosos. Al costat tens la mitjana de l'INE."
+    },
+    "balance": {
+      "title": "Digues quant tens al compte",
+      "text": "Mira el saldo a l'app del banc i escriu-lo. Des d'aquí, Pessic et dirà quant et queda cada dia."
+    }
+  },
+  "rules": {
+    "eyebrow": "Les regles del mes",
+    "title": "Quatre regles i prou",
+    "weekly": "Cada setmana té el seu límit. El que no gastes passa a la següent.",
+    "red": "Un sobre en vermell es tanca fins al mes següent. Si de veritat cal gastar-hi més, abaixa el límit d'un altre sobre en la mateixa quantitat.",
+    "annuals": "Els anuals surten de la reserva, mai dels diners del mes.",
+    "close": "Quan acabi el mes, tanca'l."
+  },
+  "screens": {
+    "eyebrow": "Les pantalles",
+    "title": "Fes-hi una ullada",
+    "lead": "Totes les dades d'aquestes captures són inventades.",
+    "summary": {
+      "tab": "Resum",
+      "text": "La foto del mes: avisos, saldo del compte, xifres clau, el formulari <em>Apunta</em>, els sobres, el límit setmanal i les regles del mes.",
+      "alt": "Pantalla Resum"
+    },
+    "movements": {
+      "tab": "Moviments",
+      "text": "Tot el que has apuntat, amb cerca per text, categoria, tipus i període, i els totals a sota.",
+      "alt": "Pantalla Moviments"
+    },
+    "fixed": {
+      "tab": "Pagaments fixos",
+      "text": "El pla de pagaments del mes, amb el saldo previst al compte després de cada pagament.",
+      "alt": "Pantalla Pagaments fixos"
+    },
+    "annuals": {
+      "tab": "Anuals",
+      "text": "Els pagaments d'un cop l'any, el total anual i quant has d'apartar cada mes.",
+      "alt": "Pantalla Anuals"
+    },
+    "savings": {
+      "tab": "Estalvi",
+      "text": "La reserva d'anuals amb el seu saldo i els pròxims anuals, i les guardioles amb el seu progrés.",
+      "alt": "Pantalla Estalvi"
+    },
+    "limits": {
+      "tab": "Límits",
+      "text": "El límit de cada categoria al costat de la previsió de l'INE per a llars com la teva.",
+      "alt": "Pantalla Límits"
+    },
+    "history": {
+      "tab": "Històric",
+      "text": "Els teus mesos, tancats o estimats: ingressos, gastat, apartat i estalvi.",
+      "alt": "Pantalla Històric"
+    }
+  },
+  "faq": {
+    "eyebrow": "Preguntes freqüents",
+    "title": "El que la gent pregunta",
+    "data": {
+      "q": "On es guarden les meves dades?",
+      "a": "Al teu ordinador, i enlloc més. Pessic no té servidor, no et demana compte i funciona sense internet. Cada dia que l'obres en fa una còpia de seguretat i en guarda les 10 últimes."
+    },
+    "bank": {
+      "q": "Pessic es connecta al meu banc?",
+      "a": "No, i és a propòsit. Pessic serveix per fer un pressupost i complir-lo, no per analitzar el compte. Només necessita saber el saldo del compte on cobres, i això li dius tu. Si el banc no quadra, prem <em>Ajusta amb el banc</em>."
+    },
+    "savingsAccount": {
+      "q": "Envio diners cada mes al compte d'estalvi o d'inversió. Com ho poso?",
+      "a": "Com a <strong>estalvi automàtic</strong> a Configuració (si surt el dia que cobres), o com a pagament fix d'aquell dia. Pessic no necessita saber què passa en aquell compte."
+    },
+    "extraPay": {
+      "q": "He cobrat una paga extra. On la poso?",
+      "a": "Si tens 14 pagues configurades, prem <em>Rebuda</em> quan surti a Propers pagaments. Si no, apunta-la com a <em>Ingrés</em>. En tots dos casos tries on va: el pressupost del mes, la reserva, una guardiola o l'estalvi."
+    },
+    "refund": {
+      "q": "M'han tornat diners d'una compra.",
+      "a": "Apunta una <em>Devolució</em> a la mateixa categoria: abaixa el que hi has gastat."
+    },
+    "overspent": {
+      "q": "M'he passat del pressupost. I ara?",
+      "a": "No passa res: tanca el mes igualment i el mes següent revisa els límits. Pessic serveix per veure on se'n van els diners, no per renyar-te."
+    },
+    "changes": {
+      "q": "He canviat de feina o el dia que cobro.",
+      "a": "Canvia-ho a Configuració. Els canvis de sou o de pagues només afecten d'ara endavant, i si canvies el dia que cobres, els moviments es reparteixen sols en els mesos nous."
+    },
+    "computers": {
+      "q": "Puc fer servir Pessic en més d'un ordinador?",
+      "a": "No se sincronitza sol. Exporta una còpia (.json) en un ordinador i importa-la a l'altre."
+    },
+    "more": "Tens més dubtes? Llegeix el <a href=\"manual.html\">manual d'ús complet</a>."
+  },
+  "download": {
+    "eyebrow": "Descarrega",
+    "title": "Comença el mes que ve amb un pressupost",
+    "status": "Tria el teu sistema.",
+    "windowsMeta": "Instal·lador .msi",
+    "macMeta": "Imatge de disc .dmg",
+    "linuxMeta": "Paquets .deb (Debian, Ubuntu) i .rpm (Fedora)",
+    "dataTitle": "On es guarden les dades",
+    "startTitle": "Abans de començar",
+    "startText": "Després d'instal·lar-lo, llegeix <a href=\"manual.html#2-primer-pas-crea-el-perfil\">com crear el perfil</a> i <a href=\"manual.html#3-posa-ho-a-punt-15-minuts\">com deixar-ho a punt</a>. De tant en tant, exporta una còpia (.json) i guarda-la al núvol o en un altre disc."
+  },
+  "footer": {
+    "tagline": "Un petit pessic de les teves despeses.",
+    "copyright": "© <span data-year>2026</span> Pessic. Les dades de les captures són inventades.",
+    "manualCopyright": "© <span data-year>2026</span> Pessic."
+  },
+  "manual": {
+    "title": "Manual d'ús · Pessic",
+    "description": "Manual d'ús de Pessic: com crear el perfil, deixar-ho a punt, apuntar el dia a dia i tancar el mes.",
+    "toc": "Índex"
+  },
+  "js": {
+    "soon": "Aviat disponible",
+    "yourSystem": "El teu sistema",
+    "msi": "Descarrega el .msi",
+    "dmg": "Descarrega el .dmg",
+    "deb": "Descarrega el .deb",
+    "rpm": "Descarrega el .rpm",
+    "statusPublished": "Versió {version}. Tria el teu sistema.",
+    "statusSoon": "Els instal·ladors encara no estan publicats. Torna-hi aviat: aquí els trobaràs per a Windows, macOS i Linux.",
+    "downloadFor": "Descarrega per a {system}",
+    "heroNote": "Versió {version} · <a href=\"#descarrega\">Altres sistemes</a>"
+  }
+}
