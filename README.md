@@ -92,3 +92,9 @@ tools/screenshots/take.sh
 The script uses a temporary database (`PESSIC_DB`) and a fixed date (`PESSIC_TODAY`), so it never
 touches your own Pessic data, and writes `assets/screens/*.webp`. A window opens for a few seconds
 while it works.
+
+## License
+
+The website is open source under the [Apache License 2.0](LICENSE), like
+[Pessic](https://github.com/aocdev/pessic) itself. Copyright 2026 aocdev (Albert Ortells). See
+[NOTICE](NOTICE).
