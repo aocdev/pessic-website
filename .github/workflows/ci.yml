@@ -1,0 +1,44 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the website
+        uses: actions/checkout@v4
+
+      - name: Checkout the app (for MANUAL.md)
+        uses: actions/checkout@v4
+        with:
+          repository: aocdev/pessic
+          path: .app
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Build the pages
+        run: python3 tools/build.py .app
+
+      - name: The committed pages are up to date
+        run: |
+          if ! git diff --exit-code -- index.html manual.html; then
+            echo "::error::The pages are out of date: run python3 tools/build.py and commit the result."
+            exit 1
+          fi
+
+      - name: Tags, files and anchors
+        run: python3 tools/check.py
+
+      - name: Script syntax
+        run: node --check js/main.js

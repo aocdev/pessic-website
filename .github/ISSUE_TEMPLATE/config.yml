@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Problem with the Pessic app
+    url: https://github.com/aocdev/pessic/issues
+    about: Bugs in the app itself go to the app's repository.
+  - name: Questions & Discussions
+    url: https://github.com/aocdev/pessic/discussions
+    about: Ask questions or discuss ideas before opening an issue.
+  - name: Security vulnerability
+    url: https://github.com/aocdev/pessic-website/security/advisories/new
+    about: Report security issues privately, never in a public issue.

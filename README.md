@@ -14,6 +14,7 @@ css/styles.css          styles; light and dark mode follow the system
 js/main.js              download links, system detection, screen tabs, zoom, mobile menu
 assets/                 icon (from the app) and screenshots (WebP)
 tools/build.py          builds the pages from src/ + i18n/ (+ the app's MANUAL.md)
+tools/check.py          checks the built pages: tags, files, anchors
 tools/screenshots/      retakes the screenshots from the real app
 ```
 
@@ -92,6 +93,12 @@ tools/screenshots/take.sh
 The script uses a temporary database (`PESSIC_DB`) and a fixed date (`PESSIC_TODAY`), so it never
 touches your own Pessic data, and writes `assets/screens/*.webp`. A window opens for a few seconds
 while it works.
+
+## Contributing
+
+Read [CONTRIBUTING.md](CONTRIBUTING.md) and the [Code of Conduct](CODE_OF_CONDUCT.md). Report security
+issues privately as described in [SECURITY.md](SECURITY.md). `python3 tools/check.py` checks the built
+pages (tags, files, anchors); CI runs it, together with the build, on every push and pull request.
 
 ## License
 

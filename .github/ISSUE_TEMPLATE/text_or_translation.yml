@@ -1,0 +1,29 @@
+name: Text or translation
+description: A typo, an unclear sentence, or a translation to add or fix
+labels: [ "i18n" ]
+
+body:
+  - type: dropdown
+    id: language
+    attributes:
+      label: Language
+      options:
+        - Català
+        - Another language (say which below)
+    validations:
+      required: true
+
+  - type: textarea
+    id: where
+    attributes:
+      label: Where
+      description: The page and the text as it appears now (or its key in `i18n/<language>.json`).
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed text
+    validations:
+      required: true

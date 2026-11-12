@@ -1,0 +1,42 @@
+name: Website problem
+description: Something on the website is broken, wrong or hard to read
+labels: [ "bug" ]
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for reporting it. This is for the **website** only: problems with the Pessic app
+        itself go to the [app's issues](https://github.com/aocdev/pessic/issues).
+
+  - type: input
+    id: page
+    attributes:
+      label: Page
+      description: The address, or the section of the page.
+      placeholder: "index.html#descarrega"
+    validations:
+      required: true
+
+  - type: input
+    id: browser
+    attributes:
+      label: Browser and device
+      placeholder: "Firefox 140 on Fedora, Safari on iPhone…"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: What is wrong?
+      description: A clear description. Screenshots are welcome.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect?
+    validations:
+      required: false

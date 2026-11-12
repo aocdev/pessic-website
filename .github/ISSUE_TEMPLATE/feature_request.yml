@@ -1,0 +1,25 @@
+name: Website idea
+description: Suggest a section, an improvement or new content for the website
+labels: [ "enhancement" ]
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Ideas for the **app** go to the [app's Discussions](https://github.com/aocdev/pessic/discussions).
+
+  - type: textarea
+    id: idea
+    attributes:
+      label: Idea
+      description: What would you add or change, and why would it help visitors?
+    validations:
+      required: true
+
+  - type: textarea
+    id: example
+    attributes:
+      label: Example
+      description: A sketch, a text draft, or a site that does it well.
+    validations:
+      required: false
