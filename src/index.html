@@ -14,6 +14,7 @@
   <link rel="icon" type="image/png" href="{{=root}}assets/favicon.png">
   <link rel="apple-touch-icon" href="{{=root}}assets/apple-touch-icon.png">
   <link rel="stylesheet" href="{{=root}}css/styles.css">
+  <script src="{{=root}}js/release.js" defer></script>
   <script src="{{=root}}js/main.js" defer></script>
 </head>
 <body>
@@ -388,6 +389,20 @@
             <h3>{{download.startTitle}}</h3>
             <p>{{download.startText}}</p>
           </div>
+        </div>
+        <div class="verify" data-download="verify" hidden>
+          <h3>{{download.verifyTitle}}</h3>
+          <p>{{download.verifyText}}</p>
+          <dl class="verify-commands">
+            <dt>{{download.verifyWindows}}</dt>
+            <dd><code>Get-FileHash &lt;{{download.verifyFile}}&gt;</code></dd>
+            <dt>{{download.verifyMac}}</dt>
+            <dd><code>shasum -a 256 &lt;{{download.verifyFile}}&gt;</code></dd>
+            <dt>{{download.verifyLinux}}</dt>
+            <dd><code>sha256sum -c SHA256SUMS.txt --ignore-missing</code></dd>
+          </dl>
+          <p>{{download.verifySums}}</p>
+          <p class="small muted">{{download.verifyAttest}}</p>
         </div>
       </div>
     </section>

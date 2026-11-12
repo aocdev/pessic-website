@@ -42,10 +42,22 @@
     "shotAlt": "Pantalla Resum de Pessic: propers pagaments, saldo del compte, xifres del mes i el que queda per gastar"
   },
   "facts": {
-    "data": { "title": "Les dades són teves.", "text": "Es queden al teu ordinador: sense comptes ni núvol." },
-    "offline": { "title": "Funciona sense internet.", "text": "Obres l'aplicació i ja hi és tot." },
-    "ine": { "title": "Categories oficials de l'INE.", "text": "Compara't amb les llars com la teva." },
-    "backups": { "title": "Còpies cada dia.", "text": "Pessic en guarda les 10 últimes, sense que hi pensis." }
+    "data": {
+      "title": "Les dades són teves.",
+      "text": "Es queden al teu ordinador: sense comptes ni núvol."
+    },
+    "offline": {
+      "title": "Funciona sense internet.",
+      "text": "Obres l'aplicació i ja hi és tot."
+    },
+    "ine": {
+      "title": "Categories oficials de l'INE.",
+      "text": "Compara't amb les llars com la teva."
+    },
+    "backups": {
+      "title": "Còpies cada dia.",
+      "text": "Pessic en guarda les 10 últimes, sense que hi pensis."
+    }
   },
   "basics": {
     "eyebrow": "Les idees bàsiques",
@@ -125,12 +137,30 @@
       "alt": "Diàleg Tanca el mes: resum del mes, aportacions a la reserva i a les guardioles, i què fer amb el que ha sobrat"
     },
     "extras": {
-      "upcoming": { "title": "Propers pagaments.", "text": "Els fixos que vencen en 3 dies o ja han vençut, i els anuals del mes." },
-      "paychecks": { "title": "12 o 14 pagues.", "text": "Pessic t'avisa el mes que toca cobrar la paga extra." },
-      "search": { "title": "Cerca sense accents.", "text": "«cafe» troba «Cafè». Per categoria, tipus i període." },
-      "csv": { "title": "Exporta a CSV.", "text": "Moviments, sobres i històric, a punt per a Excel o LibreOffice." },
-      "profiles": { "title": "Diversos perfils.", "text": "El teu, el de la llar, el de qui vulguis." },
-      "backups": { "title": "Còpies per guardar fora.", "text": "Exporta-ho tot en un fitxer i recupera-ho en un altre ordinador." }
+      "upcoming": {
+        "title": "Propers pagaments.",
+        "text": "Els fixos que vencen en 3 dies o ja han vençut, i els anuals del mes."
+      },
+      "paychecks": {
+        "title": "12 o 14 pagues.",
+        "text": "Pessic t'avisa el mes que toca cobrar la paga extra."
+      },
+      "search": {
+        "title": "Cerca sense accents.",
+        "text": "«cafe» troba «Cafè». Per categoria, tipus i període."
+      },
+      "csv": {
+        "title": "Exporta a CSV.",
+        "text": "Moviments, sobres i històric, a punt per a Excel o LibreOffice."
+      },
+      "profiles": {
+        "title": "Diversos perfils.",
+        "text": "El teu, el de la llar, el de qui vulguis."
+      },
+      "backups": {
+        "title": "Còpies per guardar fora.",
+        "text": "Exporta-ho tot en un fitxer i recupera-ho en un altre ordinador."
+      }
     }
   },
   "start": {
@@ -248,7 +278,15 @@
     "linuxMeta": "Paquets .deb (Debian, Ubuntu) i .rpm (Fedora)",
     "dataTitle": "On es guarden les dades",
     "startTitle": "Abans de començar",
-    "startText": "Després d'instal·lar-lo, llegeix <a href=\"manual.html#2-primer-pas-crea-el-perfil\">com crear el perfil</a> i <a href=\"manual.html#3-posa-ho-a-punt-15-minuts\">com deixar-ho a punt</a>. De tant en tant, exporta una còpia (.json) i guarda-la al núvol o en un altre disc."
+    "startText": "Després d'instal·lar-lo, llegeix <a href=\"manual.html#2-primer-pas-crea-el-perfil\">com crear el perfil</a> i <a href=\"manual.html#3-posa-ho-a-punt-15-minuts\">com deixar-ho a punt</a>. De tant en tant, exporta una còpia (.json) i guarda-la al núvol o en un altre disc.",
+    "verifyTitle": "Comprova la descàrrega",
+    "verifyText": "Cada versió publica la suma SHA-256 de cada instal·lador. Calcula la del fitxer que has baixat: si coincideix amb la d'aquí, és exactament el que es va publicar, sense errors ni canvis.",
+    "verifyWindows": "Windows (PowerShell)",
+    "verifyMac": "macOS (Terminal)",
+    "verifyLinux": "Linux (amb SHA256SUMS.txt a la mateixa carpeta)",
+    "verifyFile": "fitxer",
+    "verifySums": "Totes les sumes en un fitxer: <a href=\"#\" data-download=\"sums\">SHA256SUMS.txt</a>.",
+    "verifyAttest": "Avançat: cada fitxer té també una certificació de GitHub que demostra que s'ha generat a partir del codi de Pessic. Comprova-la amb <a href=\"https://cli.github.com/\">GitHub CLI</a>: <code>gh attestation verify &lt;fitxer&gt; --repo aocdev/pessic</code>."
   },
   "footer": {
     "tagline": "Un petit pessic de les teves despeses.",
@@ -272,6 +310,10 @@
     "statusPublished": "Versió {version}. Tria el teu sistema.",
     "statusSoon": "Els instal·ladors encara no estan publicats. Torna-hi aviat: aquí els trobaràs per a Windows, macOS i Linux.",
     "downloadFor": "Descarrega per a {system}",
-    "heroNote": "Versió {version} · <a href=\"#descarrega\">Altres sistemes</a>"
+    "heroNote": "Versió {version} · <a href=\"#descarrega\">Altres sistemes</a>",
+    "sha256": "SHA-256",
+    "copy": "Copia",
+    "copied": "Copiat",
+    "copySha": "Copia la suma SHA-256 de {file}"
   }
 }

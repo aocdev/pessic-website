@@ -14,6 +14,7 @@
   <link rel="icon" type="image/png" href="assets/favicon.png">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <link rel="stylesheet" href="css/styles.css">
+  <script src="js/release.js" defer></script>
   <script src="js/main.js" defer></script>
 </head>
 <body>
@@ -389,6 +390,20 @@
             <p>Després d'instal·lar-lo, llegeix <a href="manual.html#2-primer-pas-crea-el-perfil">com crear el perfil</a> i <a href="manual.html#3-posa-ho-a-punt-15-minuts">com deixar-ho a punt</a>. De tant en tant, exporta una còpia (.json) i guarda-la al núvol o en un altre disc.</p>
           </div>
         </div>
+        <div class="verify" data-download="verify" hidden>
+          <h3>Comprova la descàrrega</h3>
+          <p>Cada versió publica la suma SHA-256 de cada instal·lador. Calcula la del fitxer que has baixat: si coincideix amb la d'aquí, és exactament el que es va publicar, sense errors ni canvis.</p>
+          <dl class="verify-commands">
+            <dt>Windows (PowerShell)</dt>
+            <dd><code>Get-FileHash &lt;fitxer&gt;</code></dd>
+            <dt>macOS (Terminal)</dt>
+            <dd><code>shasum -a 256 &lt;fitxer&gt;</code></dd>
+            <dt>Linux (amb SHA256SUMS.txt a la mateixa carpeta)</dt>
+            <dd><code>sha256sum -c SHA256SUMS.txt --ignore-missing</code></dd>
+          </dl>
+          <p>Totes les sumes en un fitxer: <a href="#" data-download="sums">SHA256SUMS.txt</a>.</p>
+          <p class="small muted">Avançat: cada fitxer té també una certificació de GitHub que demostra que s'ha generat a partir del codi de Pessic. Comprova-la amb <a href="https://cli.github.com/">GitHub CLI</a>: <code>gh attestation verify &lt;fitxer&gt; --repo aocdev/pessic</code>.</p>
+        </div>
       </div>
     </section>
   </main>
@@ -414,6 +429,6 @@
     <button class="lightbox-close" type="button" aria-label="Tanca">×</button>
     <img alt="">
   </dialog>
-  <script id="i18n-strings" type="application/json">{"js.soon": "Aviat disponible", "js.yourSystem": "El teu sistema", "js.msi": "Descarrega el .msi", "js.dmgArm": "Descarrega el .dmg (Apple Silicon)", "js.dmgIntel": "Descarrega el .dmg (Intel)", "js.deb": "Descarrega el .deb", "js.rpm": "Descarrega el .rpm", "js.statusPublished": "Versió {version}. Tria el teu sistema.", "js.statusSoon": "Els instal·ladors encara no estan publicats. Torna-hi aviat: aquí els trobaràs per a Windows, macOS i Linux.", "js.downloadFor": "Descarrega per a {system}", "js.heroNote": "Versió {version} · <a href=\"#descarrega\">Altres sistemes<\/a>"}</script>
+  <script id="i18n-strings" type="application/json">{"js.soon": "Aviat disponible", "js.yourSystem": "El teu sistema", "js.msi": "Descarrega el .msi", "js.dmgArm": "Descarrega el .dmg (Apple Silicon)", "js.dmgIntel": "Descarrega el .dmg (Intel)", "js.deb": "Descarrega el .deb", "js.rpm": "Descarrega el .rpm", "js.statusPublished": "Versió {version}. Tria el teu sistema.", "js.statusSoon": "Els instal·ladors encara no estan publicats. Torna-hi aviat: aquí els trobaràs per a Windows, macOS i Linux.", "js.downloadFor": "Descarrega per a {system}", "js.heroNote": "Versió {version} · <a href=\"#descarrega\">Altres sistemes<\/a>", "js.sha256": "SHA-256", "js.copy": "Copia", "js.copied": "Copiat", "js.copySha": "Copia la suma SHA-256 de {file}"}</script>
 </body>
 </html>

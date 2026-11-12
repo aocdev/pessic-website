@@ -1,24 +1,18 @@
 /* Pessic website: download links, system detection, screen tabs, zoomed screenshots and the mobile menu. */
 
 /**
- * The installers. When a release is published, fill in each `href` (a relative path such as
- * "downloads/Pessic-1.0.0.msi" or a full URL). Empty links show "Aviat disponible".
- * `label` is a key of i18n/<language>.json.
+ * The published release, from js/release.js (written by tools/release.py): for each file type its link
+ * and SHA-256, plus the link to SHA256SUMS.txt. Empty links show "Aviat disponible".
  */
-const RELEASE = {
-  version: "1.0.0",
-  downloads: {
-    windows: [{ label: "js.msi", href: "" }],
-    mac: [
-      { label: "js.dmgArm", href: "" },
-      { label: "js.dmgIntel", href: "" },
-    ],
-    linux: [
-      { label: "js.deb", href: "" },
-      { label: "js.rpm", href: "" },
-    ],
-  },
-};
+const RELEASE = window.PESSIC_RELEASE || { version: "", checksums: "", files: {} };
+
+/** Which files each system's card offers, in order, and their button labels (keys of i18n/<language>.json). */
+const PLATFORM_FILES = { windows: ["msi"], mac: ["dmgArm", "dmgIntel"], linux: ["deb", "rpm"] };
+const LABELS = { msi: "js.msi", dmgArm: "js.dmgArm", dmgIntel: "js.dmgIntel", deb: "js.deb", rpm: "js.rpm" };
+
+function file(type) {
+  return { label: LABELS[type], href: "", sha256: "", ...(RELEASE.files || {})[type] };
+}
 
 /** Texts for this script, embedded in each page by tools/build.py from i18n/<language>.json. */
 const STRINGS = (() => {
@@ -65,20 +59,68 @@ function linkButton(item, primary) {
   return a;
 }
 
+/** "Pessic-1.0.0.msi" from a link to it. */
+function fileName(href) {
+  return decodeURIComponent(href.split(/[?#]/)[0].split("/").pop() || "");
+}
+
+/** One line under the buttons: file name, its SHA-256 and a button to copy it. */
+function checksumLine(item) {
+  const line = document.createElement("div");
+  line.className = "checksum";
+  const name = document.createElement("span");
+  name.className = "checksum-file";
+  name.textContent = fileName(item.href);
+  const code = document.createElement("code");
+  code.textContent = item.sha256;
+  const copy = document.createElement("button");
+  copy.type = "button";
+  copy.className = "checksum-copy";
+  copy.textContent = t("js.copy");
+  copy.setAttribute("aria-label", t("js.copySha", { file: fileName(item.href) }));
+  copy.addEventListener("click", async () => {
+    try {
+      await navigator.clipboard.writeText(item.sha256);
+      copy.textContent = t("js.copied");
+      setTimeout(() => { copy.textContent = t("js.copy"); }, 2000);
+    } catch {
+      const range = document.createRange(); // no clipboard access: select it for the user
+      range.selectNodeContents(code);
+      const selection = window.getSelection();
+      selection.removeAllRanges();
+      selection.addRange(range);
+    }
+  });
+  line.append(name, code, copy);
+  return line;
+}
+
 function setUpDownloads() {
   const current = detectPlatform();
-  const anyPublished = Object.values(RELEASE.downloads).some((list) => list.some((d) => d.href));
+  const all = Object.values(PLATFORM_FILES).flat().map(file);
+  const anyPublished = all.some((f) => f.href);
+  const anyChecksum = all.some((f) => f.href && f.sha256);
 
   document.querySelectorAll("[data-platform]").forEach((card) => {
     const key = card.dataset.platform;
     const slot = card.querySelector("[data-links]");
-    const links = RELEASE.downloads[key] || [];
-    const seen = new Set();
-    links.forEach((item, i) => {
-      if (!item.href && seen.has("soon")) return; // a single "Aviat disponible" per card
-      if (!item.href) seen.add("soon");
+    const items = (PLATFORM_FILES[key] || []).map(file);
+    let soonShown = false;
+    items.forEach((item, i) => {
+      if (!item.href && soonShown) return; // a single "Aviat disponible" per card
+      if (!item.href) soonShown = true;
       slot.appendChild(linkButton(item, i === 0));
     });
+    const sums = items.filter((item) => item.href && item.sha256);
+    if (sums.length) {
+      const list = document.createElement("div");
+      list.className = "platform-checksums";
+      const title = document.createElement("p");
+      title.className = "checksum-title";
+      title.textContent = t("js.sha256");
+      list.append(title, ...sums.map(checksumLine));
+      card.appendChild(list);
+    }
     if (key === current) {
       card.classList.add("is-current");
       const badge = document.createElement("span");
@@ -95,11 +137,20 @@ function setUpDownloads() {
       : t("js.statusSoon");
   }
 
+  // how to check a download, once there is something to check
+  const verify = document.querySelector('[data-download="verify"]');
+  if (verify && (anyChecksum || RELEASE.checksums)) {
+    verify.hidden = false;
+    const sumsLink = verify.querySelector('[data-download="sums"]');
+    if (sumsLink && RELEASE.checksums) sumsLink.href = RELEASE.checksums;
+    else if (sumsLink) sumsLink.closest("p").hidden = true;
+  }
+
   // the hero button downloads directly for the visitor's system when that installer exists
   const hero = document.querySelector('[data-download="primary"]');
   if (hero && current) {
-    const first = (RELEASE.downloads[current] || [])[0];
-    if (first && first.href) {
+    const first = file(PLATFORM_FILES[current][0]);
+    if (first.href) {
       hero.href = first.href;
       hero.setAttribute("download", "");
       hero.textContent = t("js.downloadFor", { system: PLATFORM_NAMES[current] });
