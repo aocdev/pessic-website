@@ -1,0 +1,104 @@
+# Publishes the website on GitHub Pages.
+# - Every push to main: deploys the committed pages.
+# - A new Pessic release (sent by the app's Installers workflow as a "pessic-release" event), or
+#   Actions > Pages > Run workflow with a version: first points the downloads to that release
+#   (tools/release.py writes js/release.js with the links and SHA-256 checksums), commits it, and deploys.
+# Settings > Pages > Source must be "GitHub Actions".
+name: Pages
+
+on:
+  push:
+    branches: [ main ]
+  repository_dispatch:
+    types: [ pessic-release ]
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Point the downloads to this Pessic release (e.g. 1.0.0). Empty: just deploy."
+        required: false
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  release-links:
+    if: github.event_name == 'repository_dispatch' || (github.event_name == 'workflow_dispatch' && inputs.version != '')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Links and checksums of the release
+        env:
+          VERSION: ${{ github.event.client_payload.version || inputs.version }}
+        run: |
+          python3 tools/release.py "${VERSION#v}"
+          python3 tools/check.py
+
+      - name: Commit js/release.js
+        env:
+          VERSION: ${{ github.event.client_payload.version || inputs.version }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add js/release.js
+          if git diff --cached --quiet; then
+            echo "Already pointing to Pessic ${VERSION#v}"
+          else
+            git commit -m "chore(downloads): link Pessic ${VERSION#v}"
+            git push
+          fi
+
+  build:
+    needs: release-links
+    # also when release-links was skipped (a plain push)
+    if: ${{ !cancelled() && needs.release-links.result != 'failure' }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Check the pages
+        run: python3 tools/check.py
+
+      - name: Collect the public files
+        run: |
+          mkdir _site
+          cp -r index.html manual.html css js assets _site/
+          for json in i18n/*.json; do            # translations: one folder per i18n/<code>.json (ca is the root)
+            code="$(basename "$json" .json)"
+            if [ "$code" != ca ] && [ -f "$code/index.html" ]; then cp -r "$code" _site/; fi
+          done
+          touch _site/.nojekyll                  # serve the files as they are
+          find _site -type f | sort
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    if: ${{ !cancelled() && needs.build.result == 'success' }}
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

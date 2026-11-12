@@ -28,6 +28,32 @@ Open `index.html` in a browser, or serve the folder:
 python3 -m http.server 8000      # then open http://localhost:8000
 ```
 
+## Hosting: GitHub Pages
+
+The site is published at **https://aocdev.github.io/pessic-website/** by `.github/workflows/pages.yml`:
+
+- **Every push to `main`** checks the pages and deploys them. Only what the site needs is published:
+  `index.html`, `manual.html`, `css/`, `js/`, `assets/` and the translation folders; never `src/`,
+  `tools/` or the README.
+- **Every Pessic release** updates the downloads by itself: the app's Installers workflow sends a
+  `pessic-release` event, and this workflow runs `tools/release.py <version>`, commits
+  `js/release.js` and deploys. **Actions > Pages > Run workflow** with a version does the same by hand.
+
+One-time setup:
+
+1. In this repository: **Settings > Pages > Source: GitHub Actions**.
+2. A token that lets the app's repository start this workflow: on GitHub, **Settings > Developer
+   settings > Personal access tokens > Fine-grained tokens > Generate new token**, owner `aocdev`,
+   only the repository `pessic-website`, permission **Contents: Read and write**.
+3. In the app's repository (`aocdev/pessic`): **Settings > Secrets and variables > Actions > New
+   repository secret**, name `WEBSITE_DISPATCH_TOKEN`, value the token. Without it, releases still
+   work; the website is then updated with **Run workflow**.
+4. If `main` gets branch protection, allow GitHub Actions to push to it (the workflow commits
+   `js/release.js`).
+
+To move to your own domain or another hosting later, upload the same files the workflow publishes
+(the list above), or add the domain in **Settings > Pages > Custom domain**.
+
 ## Publishing the installers
 
 The download buttons and their SHA-256 checksums come from `js/release.js`, written by
@@ -40,7 +66,8 @@ python3 tools/release.py 1.0.0 --sums SHA256SUMS.txt     # or from a downloaded 
 python3 tools/release.py 1.0.0 --clear                   # back to "Aviat disponible"
 ```
 
-It links each button to its file in the release (`Pessic-1.0.0.msi`, `Pessic-1.0.0-arm64.dmg`,
+With GitHub Pages this happens by itself on every release (see above). By hand: it links each button
+to its file in the release (`Pessic-1.0.0.msi`, `Pessic-1.0.0-arm64.dmg`,
 `Pessic-1.0.0-x64.dmg`, `pessic_1.0.0_amd64.deb`, `pessic-1.0.0-1.x86_64.rpm`) and writes its
 SHA-256. Then upload the site again; no rebuild is needed, because `js/release.js` is not generated
 from the templates.
