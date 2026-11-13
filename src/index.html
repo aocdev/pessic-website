@@ -15,6 +15,7 @@
   <link rel="apple-touch-icon" href="{{=root}}assets/apple-touch-icon.png">
   <link rel="stylesheet" href="{{=root}}css/styles.css">
   <script src="{{=root}}js/release.js" defer></script>
+  <script src="{{=root}}js/downloads.js" defer></script>
   <script src="{{=root}}js/main.js" defer></script>
 </head>
 <body>
@@ -353,6 +354,7 @@
           <p class="eyebrow">{{download.eyebrow}}</p>
           <h2>{{download.title}}</h2>
           <p class="section-lead" data-download="status">{{download.status}}</p>
+          <p class="download-count" data-download="count" hidden></p>
         </header>
         <div class="cards cards-3 platforms">
           <article class="platform" data-platform="windows">

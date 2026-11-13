@@ -314,6 +314,10 @@
     "sha256": "SHA-256",
     "copy": "Copia",
     "copied": "Copiat",
-    "copySha": "Copia la suma SHA-256 de {file}"
+    "copySha": "Copia la suma SHA-256 de {file}",
+    "totalOne": "{count} descàrrega fins ara",
+    "totalOther": "{count} descàrregues fins ara",
+    "cardOne": "{count} descàrrega",
+    "cardOther": "{count} descàrregues"
   }
 }

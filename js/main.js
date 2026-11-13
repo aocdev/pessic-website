@@ -30,6 +30,15 @@ function t(key, values = {}) {
   return text;
 }
 
+/** Downloads so far, from js/downloads.js (written by tools/downloads.py when the site is deployed). */
+const DOWNLOADS = window.PESSIC_DOWNLOADS || { total: 0 };
+
+/** "1.234 descàrregues": the count formatted for the page's language, with the singular or plural text. */
+function countText(n, one, other) {
+  const count = new Intl.NumberFormat(document.documentElement.lang || "ca").format(n);
+  return t(n === 1 ? one : other, { count });
+}
+
 const PLATFORM_NAMES = { windows: "Windows", mac: "macOS", linux: "Linux" };
 
 /** "windows", "mac", "linux", or null on phones and unknown systems. */
@@ -111,6 +120,12 @@ function setUpDownloads() {
       if (!item.href) soonShown = true;
       slot.appendChild(linkButton(item, i === 0));
     });
+    if (DOWNLOADS.total > 0 && DOWNLOADS[key] > 0) {
+      const downloads = document.createElement("p");
+      downloads.className = "platform-count";
+      downloads.textContent = countText(DOWNLOADS[key], "js.cardOne", "js.cardOther");
+      slot.before(downloads);
+    }
     const sums = items.filter((item) => item.href && item.sha256);
     if (sums.length) {
       const list = document.createElement("div");
@@ -135,6 +150,12 @@ function setUpDownloads() {
     status.textContent = anyPublished
       ? t("js.statusPublished", { version: RELEASE.version })
       : t("js.statusSoon");
+  }
+
+  const total = document.querySelector('[data-download="count"]');
+  if (total && DOWNLOADS.total > 0) {
+    total.textContent = countText(DOWNLOADS.total, "js.totalOne", "js.totalOther");
+    total.hidden = false;
   }
 
   // how to check a download, once there is something to check
